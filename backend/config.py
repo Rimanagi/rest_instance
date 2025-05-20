@@ -7,9 +7,10 @@ CONFIG_DIR = Path(__file__).resolve().parent
 PROJECT_PATH = CONFIG_DIR.parent
 
 # URL
-HOST = '0.0.0.0'
+HOST = 'localhost'
 PORT = 8000
 URL = f'{HOST}:{PORT}'
+HTTPS_URL = "https://rimanagi.github.io/rest_instance/"
 
 # TG BOT
 CAPTION = 'Текст главной страницы ресторана'
