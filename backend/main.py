@@ -22,7 +22,7 @@ app = FastAPI(lifespan=lifespan)
 templates = Jinja2Templates(directory="docs")
 @app.get("/")
 async def ping(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request, "host": HOST, "port": PORT})
 
 
 if __name__ == '__main__':
