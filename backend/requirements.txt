@@ -1,0 +1,4 @@
+uvicorn
+aiogram
+fastapi
+python-dotenv
