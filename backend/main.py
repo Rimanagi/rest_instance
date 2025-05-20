@@ -2,7 +2,8 @@ import asyncio
 from contextlib import asynccontextmanager
 
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
 from backend.bot.app_tg import run_bot, stop_bot
 
 from config import HOST, PORT
@@ -18,10 +19,10 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
-
-@app.get("/ping")
-async def ping():
-    return {"status": "ok"}
+templates = Jinja2Templates(directory="docs")
+@app.get("/")
+async def ping(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 if __name__ == '__main__':
