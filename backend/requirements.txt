@@ -2,3 +2,4 @@ uvicorn
 aiogram
 fastapi
 python-dotenv
+jinja2
