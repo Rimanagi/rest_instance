@@ -34,8 +34,8 @@ templates = Jinja2Templates(directory="docs")
 @app.get("/list")
 async def ping(request: Request):
     return { 
-        'port': 8080,
-        'address': '0.0.0.0'
+        'port': PORT,
+        'address': HOST
     }
 
 
