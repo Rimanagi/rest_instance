@@ -18,7 +18,7 @@ async def lifespan(app: FastAPI):
     bot_task.cancel()
 
 
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 # Настройка CORS - разрешаем все origins
 app.add_middleware(
@@ -29,9 +29,7 @@ app.add_middleware(
     allow_headers=["*"],  # Разрешаем все заголовки
 )
 
-templates = Jinja2Templates(directory="docs")
-
-@app.get("/list")
+@app.get("/")
 async def ping(request: Request):
     return { 
         'port': PORT,
